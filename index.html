@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aetheria — City of the Skyward Sea</title>
+  <meta name="description" content="A procedural, real-time 3D world built with Three.js." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body data-mode="cinematic">
+  <canvas id="scene"></canvas>
+  <div class="letterbox top"></div>
+  <div class="letterbox bottom"></div>
+  <div id="markers"></div>
+
+  <div id="title-card">
+    <div class="tc-over">The Skyward Sea</div>
+    <h1>AETHERIA</h1>
+    <div class="tc-rule"></div>
+    <div class="tc-sub">A city raised between the tide and the heavens</div>
+  </div>
+
+  <div id="hud">
+    <header class="top">
+      <div class="brand">
+        <span class="sigil">✦</span>
+        <div><b>AETHERIA</b><small id="status">Golden hour · Clear</small></div>
+      </div>
+      <nav class="seg" id="modes">
+        <button data-mode="cinematic" title="1">Cinematic</button>
+        <button data-mode="orbit" title="2">Orbit</button>
+        <button data-mode="walk" title="3">Walk</button>
+      </nav>
+      <div class="tools">
+        <button id="btn-places" class="ghost">Landmarks</button>
+        <select id="quality" title="Render quality">
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high" selected>High</option>
+          <option value="ultra">Ultra</option>
+        </select>
+        <button id="btn-full" class="ghost icon" title="Fullscreen">⛶</button>
+      </div>
+    </header>
+
+    <aside id="places" class="panel hidden">
+      <h3>Landmarks</h3>
+      <ul id="places-list"></ul>
+    </aside>
+
+    <aside id="info" class="panel hidden">
+      <button class="x" id="info-close" aria-label="Close">×</button>
+      <small id="info-sub"></small>
+      <h2 id="info-name"></h2>
+      <p id="info-desc"></p>
+      <button id="info-action" class="cta"></button>
+    </aside>
+
+    <footer class="bottom">
+      <div class="panel seg" id="weather">
+        <button data-w="clear" class="on">Clear</button>
+        <button data-w="mist">Mist</button>
+        <button data-w="storm">Storm</button>
+      </div>
+      <div class="panel time">
+        <div class="clock" id="clock">17:00</div>
+        <div class="time-main">
+          <input type="range" id="time" min="0" max="23.99" step="0.01" value="17" aria-label="Time of day" />
+          <div class="presets">
+            <button data-t="6.3">Dawn</button>
+            <button data-t="12.5">Noon</button>
+            <button data-t="17.3">Golden</button>
+            <button data-t="18.7">Dusk</button>
+            <button data-t="23.5">Night</button>
+          </div>
+        </div>
+        <select id="speed" title="Flow of time">
+          <option value="0">Paused</option>
+          <option value="0.02" selected>Slow</option>
+          <option value="0.15">Fast</option>
+          <option value="0.9">Timelapse</option>
+        </select>
+      </div>
+      <div class="panel hint" id="hint"></div>
+    </footer>
+    <div id="toast"></div>
+    <div id="fps"></div>
+  </div>
+
+  <div id="loader">
+    <div class="ld-inner">
+      <div class="tc-over">The Skyward Sea</div>
+      <h1>AETHERIA</h1>
+      <div class="ld-track"><div id="loader-bar"></div></div>
+      <div id="loader-label">Waking the Heart…</div>
+    </div>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
